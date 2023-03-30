@@ -16,7 +16,7 @@ var (
 )
 
 func CreateLogFiles() {
-	logPath := "./../../logs/"
+	logPath := "./logs"
 	if _, err := os.Stat(logPath); os.IsNotExist(err) {
 		os.Mkdir(logPath, os.ModePerm)
 	}

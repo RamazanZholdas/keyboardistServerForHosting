@@ -517,3 +517,37 @@ WARNING: 2023/03/29 22:54:41 logging.go:48: Collection wiki already exists
 WARNING: 2023/03/29 22:54:41 logging.go:48: Collection purchase_history already exists
 WARNING: 2023/03/29 22:54:41 logging.go:48: Collection service_masters already exists
 WARNING: 2023/03/29 22:54:41 logging.go:48: Collection users already exists
+
+New session started at: 2023-03-30T11:30:57+06:00
+
+New session started at: 2023-03-30T11:31:14+06:00
+WARNING: 2023/03/30 11:31:14 logging.go:48: Collection users already exists
+WARNING: 2023/03/30 11:31:14 logging.go:48: Collection products already exists
+WARNING: 2023/03/30 11:31:14 logging.go:48: Collection news already exists
+WARNING: 2023/03/30 11:31:14 logging.go:48: Collection wiki already exists
+WARNING: 2023/03/30 11:31:14 logging.go:48: Collection purchase_history already exists
+WARNING: 2023/03/30 11:31:14 logging.go:48: Collection service_masters already exists
+
+New session started at: 2023-03-30T11:31:40+06:00
+WARNING: 2023/03/30 11:31:40 logging.go:48: Collection products already exists
+WARNING: 2023/03/30 11:31:40 logging.go:48: Collection news already exists
+WARNING: 2023/03/30 11:31:40 logging.go:48: Collection users already exists
+WARNING: 2023/03/30 11:31:40 logging.go:48: Collection wiki already exists
+WARNING: 2023/03/30 11:31:40 logging.go:48: Collection purchase_history already exists
+WARNING: 2023/03/30 11:31:40 logging.go:48: Collection service_masters already exists
+
+New session started at: 2023-03-30T11:32:06+06:00
+WARNING: 2023/03/30 11:32:06 logging.go:48: Collection news already exists
+WARNING: 2023/03/30 11:32:06 logging.go:48: Collection products already exists
+WARNING: 2023/03/30 11:32:06 logging.go:48: Collection purchase_history already exists
+WARNING: 2023/03/30 11:32:06 logging.go:48: Collection service_masters already exists
+WARNING: 2023/03/30 11:32:06 logging.go:48: Collection users already exists
+WARNING: 2023/03/30 11:32:06 logging.go:48: Collection wiki already exists
+
+New session started at: 2023-03-30T11:32:13+06:00
+WARNING: 2023/03/30 11:32:13 logging.go:48: Collection users already exists
+WARNING: 2023/03/30 11:32:13 logging.go:48: Collection service_masters already exists
+WARNING: 2023/03/30 11:32:13 logging.go:48: Collection products already exists
+WARNING: 2023/03/30 11:32:13 logging.go:48: Collection wiki already exists
+WARNING: 2023/03/30 11:32:13 logging.go:48: Collection news already exists
+WARNING: 2023/03/30 11:32:13 logging.go:48: Collection purchase_history already exists
