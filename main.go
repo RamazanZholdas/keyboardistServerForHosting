@@ -53,7 +53,13 @@ func main() {
 		app.Close()
 	}()
 
-	if err := app.Fiber.Listen("0.0.0.0:3000"); err != nil {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "3000"
+	}
+
+	if err := app.Fiber.Listen("0.0.0.0:" + port); err != nil {
 		log.Panic(err)
 	}
 
