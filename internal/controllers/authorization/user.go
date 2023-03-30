@@ -1,8 +1,6 @@
 package authorization
 
 import (
-	"fmt"
-
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/app"
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/jwt"
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/models"
@@ -24,5 +22,8 @@ func User(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "User not found"})
 	}
 
-	return c.SendString(fmt.Sprint(len(user.Cart)))
+	return c.JSON(fiber.Map{
+		"email":        user.Email,
+		"lenghtOfCart": len(user.Cart),
+	})
 }
