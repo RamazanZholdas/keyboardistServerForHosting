@@ -2,7 +2,6 @@ package cart
 
 import (
 	"encoding/json"
-	"fmt"
 	"strconv"
 
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/app"
@@ -45,23 +44,61 @@ func InsertToCart(c *fiber.Ctx) error {
 		})
 	}
 
-	fmt.Println("entering the loop")
-	//check if product exists in users cart
 	for _, cartItem := range user.Cart {
 		stringOrderCart := strconv.Itoa(int(cartItem["product"].Order))
 		if order == stringOrderCart {
-			quantity, err := strconv.Atoi(cartItem["product"].Options[0]["quantity"])
-			if err != nil {
-				return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "Failed to updatSe cart"})
+			for optionIndex, option := range cartItem["product"].Options {
+				if option["optionId"] == optionId {
+					quantity, err := strconv.Atoi(cartItem["product"].Options[optionIndex]["quantity"])
+					if err != nil {
+						return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "Failed to update cart"})
+					}
+
+					inStock, err := strconv.Atoi(cartItem["product"].Options[optionIndex]["inStock"])
+					if err != nil {
+						return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "Failed to update cart"})
+					}
+
+					if quantity == inStock {
+						return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"message": "Product is out of stock"})
+					}
+
+					quantity++
+					cartItem["product"].Options[optionIndex]["quantity"] = strconv.Itoa(quantity)
+
+					update := bson.M{"$set": bson.M{"cart": user.Cart}}
+					err = app.GetMongoInstance().UpdateOne("users", bson.M{"_id": user.ID}, update)
+					if err != nil {
+						return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "Failed to update cart"})
+					}
+					return c.JSON(fiber.Map{"message": "Product added to cart"})
+				}
 			}
-			quantity++
-			cartItem["product"].Options[0]["quantity"] = strconv.Itoa(quantity)
+			var productWithDifferentOpt models.Product
+			err = app.GetMongoInstance().FindOne("products", bson.M{"order": number}, &productWithDifferentOpt)
+			if err != nil {
+				return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"message": "Product not found"})
+			}
+
+			filteredOptions := make([]map[string]string, 0)
+			for _, option := range productWithDifferentOpt.Options {
+				if option["optionId"] == optionId {
+					filteredOptions = append(filteredOptions, option)
+					break
+				}
+			}
+
+			productWithDifferentOpt.Options = filteredOptions
+			productWithDifferentOpt.Options[0]["quantity"] = "1"
+
+			user.Cart = append(user.Cart, map[string]models.Product{"product": productWithDifferentOpt})
 
 			update := bson.M{"$set": bson.M{"cart": user.Cart}}
 			err = app.GetMongoInstance().UpdateOne("users", bson.M{"_id": user.ID}, update)
 			if err != nil {
 				return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"message": "Failed to update cart"})
 			}
+
 			return c.JSON(fiber.Map{"message": "Product added to cart"})
 		}
 	}
@@ -73,16 +110,19 @@ func InsertToCart(c *fiber.Ctx) error {
 	}
 
 	filteredOptions := make([]map[string]string, 0)
-	for _, option := range product.Options {
+	var index int
+	for optionIndex, option := range product.Options {
 		if option["optionId"] == optionId {
 			filteredOptions = append(filteredOptions, option)
+			index = optionIndex
+			break
 		}
 	}
 
 	product.Options = filteredOptions
 
 	// setting up quantity
-	product.Options[0]["quantity"] = "1"
+	product.Options[index]["quantity"] = "1"
 
 	user.Cart = append(user.Cart, map[string]models.Product{"product": product})
 
