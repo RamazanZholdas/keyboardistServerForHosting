@@ -52,7 +52,7 @@ func main() {
 		app.Close()
 	}()
 
-	if err := app.Fiber.Listen(":8000"); err != nil {
+	if err := app.Fiber.Listen("0.0.0.0:8000"); err != nil {
 		log.Panic(err)
 	}
 
