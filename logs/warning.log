@@ -520,3 +520,17 @@ WARNING: 2023/03/29 22:54:41 logging.go:48: Collection users already exists
 
 New session started at: 2023-03-30T11:51:40+06:00
 WARNING: 2023/03/30 11:51:42 logging.go:48: Database does not exist, creating new database:  demo
+
+New session started at: 2023-03-30T12:06:42+06:00
+
+New session started at: 2023-03-30T12:09:30+06:00
+
+New session started at: 2023-03-30T12:10:23+06:00
+
+New session started at: 2023-03-30T12:10:37+06:00
+WARNING: 2023/03/30 12:10:39 logging.go:48: Collection wiki already exists
+WARNING: 2023/03/30 12:10:39 logging.go:48: Collection products already exists
+WARNING: 2023/03/30 12:10:39 logging.go:48: Collection news already exists
+WARNING: 2023/03/30 12:10:39 logging.go:48: Collection users already exists
+WARNING: 2023/03/30 12:10:39 logging.go:48: Collection purchase_history already exists
+WARNING: 2023/03/30 12:10:39 logging.go:48: Collection service_masters already exists

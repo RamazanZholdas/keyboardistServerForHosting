@@ -83,7 +83,7 @@ func Intitialize(mongoURI, dbName string) (*App, error) {
 
 	utils.LogInfo(fmt.Sprintf("Created index %s", name))
 
-	fiberLogFile, err = os.OpenFile("./../../logs/FiberLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	fiberLogFile, err = os.OpenFile("./logs/FiberLogs.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		utils.LogError("Error opening fiberlog file: ", err)
 		return nil, fmt.Errorf("error opening fiberlog file: %v", err)
