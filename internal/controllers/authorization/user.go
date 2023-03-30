@@ -23,7 +23,6 @@ func User(c *fiber.Ctx) error {
 	}
 
 	return c.JSON(fiber.Map{
-		"email":        user.Email,
-		"lenghtOfCart": len(user.Cart),
+		"email": user.Email,
 	})
 }
