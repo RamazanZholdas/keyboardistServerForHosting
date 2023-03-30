@@ -354,14 +354,4 @@ ERROR: 2023/03/29 23:06:23 logging.go:52: Error parsing token:  token is malform
 ERROR: 2023/03/29 23:06:23 logging.go:52: Error parsing token:  token is malformed: token contains an invalid number of segments
 ERROR: 2023/03/29 23:06:36 logging.go:52: Error finding one document in users using this filter map[email:ghostcomrad@gmail.com], Error:  mongo: no documents in result
 
-New session started at: 2023-03-30T11:30:57+06:00
-
-New session started at: 2023-03-30T11:31:14+06:00
-ERROR: 2023/03/30 11:31:14 logging.go:52: Error opening fiberlog file:  open ./../../logs/FiberLogs.log: no such file or directory
-
-New session started at: 2023-03-30T11:31:40+06:00
-ERROR: 2023/03/30 11:31:40 logging.go:52: Error opening fiberlog file:  open ./../../logs/FiberLogs.log: no such file or directory
-
-New session started at: 2023-03-30T11:32:06+06:00
-
-New session started at: 2023-03-30T11:32:13+06:00
+New session started at: 2023-03-30T11:51:40+06:00

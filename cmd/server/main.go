@@ -12,15 +12,15 @@ import (
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/app"
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/routes"
 	"github.com/RamazanZholdas/KeyboardistSV2/utils"
+	"github.com/joho/godotenv"
 )
 
-/*
 func init() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-}*/
+}
 
 func main() {
 	app, err := app.Intitialize(os.Getenv("MONGO_URI"), os.Getenv("DATABASE_NAME"))
@@ -52,7 +52,7 @@ func main() {
 		app.Close()
 	}()
 
-	if err := app.Fiber.Listen("0.0.0.0:8000"); err != nil {
+	if err := app.Fiber.Listen(":8000"); err != nil {
 		log.Panic(err)
 	}
 
