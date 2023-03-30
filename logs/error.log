@@ -369,3 +369,9 @@ ERROR: 2023/03/30 12:10:23 logging.go:52: Failed to create new MongoDB client:  
 ERROR: 2023/03/30 12:10:23 logging.go:52: Error connecting to MongoDB:  failed to create new MongoDB client
 
 New session started at: 2023-03-30T12:10:37+06:00
+
+New session started at: 2023-03-30T12:13:49+06:00
+
+New session started at: 2023-03-30T12:14:02+06:00
+ERROR: 2023/03/30 12:14:02 logging.go:52: Failed to create new MongoDB client:  error parsing uri: scheme must be "mongodb" or "mongodb+srv"
+ERROR: 2023/03/30 12:14:02 logging.go:52: Error connecting to MongoDB:  failed to create new MongoDB client

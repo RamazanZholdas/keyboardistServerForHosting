@@ -12,15 +12,15 @@ import (
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/app"
 	"github.com/RamazanZholdas/KeyboardistSV2/internal/routes"
 	"github.com/RamazanZholdas/KeyboardistSV2/utils"
-	"github.com/joho/godotenv"
 )
 
+/*
 func init() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-}
+}*/
 
 func main() {
 	fmt.Println("Envs:", os.Getenv("MONGO_URI"), os.Getenv("DATABASE_NAME"))
